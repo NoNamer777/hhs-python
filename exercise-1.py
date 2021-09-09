@@ -5,8 +5,20 @@
 
 from datetime import datetime
 
-MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
-          'July', 'August', 'September', 'Oktober', 'November', 'December']
+MONTHS = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
 AGE_TO_CALCULATE = 100
 
 
@@ -31,8 +43,8 @@ def get_age(message):
 
 
 def get_month():
-    # Returns the numeric value of the inputted month ( 0 - 11 ).
-    month = input('In what month is your birthday? ')
+    # Returns the numeric value of the inputted month name ( 0 - 11 ).
+    month = input('\nWhat is the name of the month of your birthday? (January, February, ...) ')
 
     if month.capitalize() not in MONTHS:
         print(
@@ -57,8 +69,8 @@ def calc_year(age, birthday_month):
 
 
 def main():
-    name = input('What is your name? ')
-    age = get_age('How old are you? ')
+    name = input('\nWhat is your name? ')
+    age = get_age('\nHow old are you? (0..) ')
     month_of_birth_int = get_month()
     calculated_year = calc_year(age, month_of_birth_int)
 
