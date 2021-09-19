@@ -24,7 +24,7 @@ class Student:
         self._first_name = first_name
 
     def __repr__(self) -> str:
-        return f'Student( {self.first_name} {self.last_name} )'
+        return f'Student{{ name: \'{self.first_name} {self.last_name}\' }}'
 
 
 def main():
