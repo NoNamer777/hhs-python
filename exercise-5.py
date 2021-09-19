@@ -28,12 +28,13 @@ class Student:
 
 
 def main():
-    students = [
-        Student(first_name='Oscar', last_name='Wellner'),
-        Student(first_name='Menno', last_name='Wellner'),
-    ]
+    student1 = Student(first_name='Oscar', last_name='Wellner')
+    student2 = Student(first_name='Menno', last_name='Wellner')
 
-    print(students)
+    students = [student1, student2]
+
+    for student in students:
+        print(student)
 
 
 if (__name__ == '__main__'):
