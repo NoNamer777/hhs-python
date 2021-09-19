@@ -1,10 +1,10 @@
-LAST_NAME_CONST = 'last_name'
+LAST_NAME_KEY = 'last_name'
 FIRST_NAME_KEY = 'first_name'
 
 
 class Student:
     def __init__(self, **kwargs):
-        self._last_name = kwargs[LAST_NAME_CONST] if LAST_NAME_CONST in kwargs else None
+        self._last_name = kwargs[LAST_NAME_KEY] if LAST_NAME_KEY in kwargs else None
         self._first_name = kwargs[FIRST_NAME_KEY] if FIRST_NAME_KEY in kwargs else None
 
     @property
