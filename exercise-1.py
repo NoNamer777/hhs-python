@@ -1,7 +1,7 @@
 # Author: Oscar Wellner, 21144192
 # Date: 2021-09-02
-# About:    This Python script will ask the User his name, age, and month of birth and returns his name, age and the year
-#           when the User will reach a specific age.
+# About:    This Python script will ask the User his name, age, and month of birth and returns his name,
+#           age and the year when the User will reach a specific age.
 
 from datetime import datetime
 

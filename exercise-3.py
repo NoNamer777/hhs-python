@@ -14,10 +14,10 @@ def print_lower_than():
     lower_than = []
 
     for i in A:
-        if (i < LOWER_THAN):
+        if i < LOWER_THAN:
             lower_than.append(i)
 
-        if (i > LOWER_THAN):
+        if i > LOWER_THAN:
             break
 
     print(f'\nThe following number are lower than {LOWER_THAN}: {lower_than}')
@@ -37,7 +37,7 @@ def print_above_average(average):
     above_average = []
 
     for i in A:
-        if (i > average):
+        if i > average:
             above_average.append(i)
 
     print(f'\nThe numbers in our list that are above average are: {above_average}')
