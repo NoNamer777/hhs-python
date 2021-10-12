@@ -1,3 +1,8 @@
+# Author: Oscar Wellner, 21144192
+# Date: 2021-09-19
+# About:    This Python script demonstrates how to create an instance of a Python Class.
+#           put them in a list, and print them to the console.
+
 LAST_NAME_KEY = 'last_name'
 FIRST_NAME_KEY = 'first_name'
 

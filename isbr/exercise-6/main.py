@@ -37,7 +37,7 @@ class Student:
 def create_student_list() -> list[Student]:
     students = []
 
-    with open('exercise-6-data.csv', 'r') as students_file:
+    with open('data.csv', 'r') as students_file:
         csv_reader = csv.DictReader(students_file)
 
         for student_data in csv_reader:
