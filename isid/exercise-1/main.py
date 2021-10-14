@@ -23,6 +23,7 @@ def main():
 
         student_overview_app.student_list_text.insert(f'{index + 1}.0', f'- {student.name()}\n')
 
+    student_overview_app.student_list_text['state'] = 'disabled'
     student_overview_app.app.mainloop()
 
 
