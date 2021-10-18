@@ -1,5 +1,11 @@
+from os import chdir, getcwd
+from os.path import join
+import pathlib
 from tkinter import ttk, font
 import tkinter
+
+PROJECT_DIR = pathlib.Path(__file__)
+chdir(PROJECT_DIR.parent.parent)
 
 
 class StudentOverviewApp:
@@ -17,8 +23,10 @@ class StudentOverviewApp:
         self._create_text_widget()
 
     def _create_banner(self):
+        print(join(getcwd(), 'assets', 'images', 'biker-banner.png'))
+
         self._banner = tkinter.PhotoImage(
-            file='C:\\Users\\oscar\\repositories\\hhs-python\\assets\\images\\biker-banner.png')
+            file=join(getcwd(), 'assets', 'images', 'biker-banner.png'))
 
         label = ttk.Label(self._app, image=self._banner)
         label.config(anchor=tkinter.CENTER)
