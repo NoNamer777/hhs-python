@@ -1,21 +1,24 @@
 from os import chdir, getcwd
 from os.path import join
-import pathlib
-from tkinter import ttk, font
-import tkinter
+from pathlib import Path
+from tkinter import ttk, Toplevel, PhotoImage, Text, Tk, X, CENTER
+from tkinter.font import Font, BOLD
 
-PROJECT_DIR = pathlib.Path(__file__)
-chdir(PROJECT_DIR.parent.parent)
+# Gets the current file location of this file
+FILE_LOCATION = Path(__file__)
+# Changes the working directory of the Python script to 2 directories higher,
+# which would be the project root.
+chdir(FILE_LOCATION.parent.parent)
 
 
 class StudentOverviewApp:
-    _app: tkinter.Tk = None
-    _window: tkinter.Toplevel = None
-    _banner: tkinter.PhotoImage = None
-    _student_list_text: tkinter.Text = None
+    _app: Tk = None
+    _window: Toplevel = None
+    _banner: PhotoImage = None
+    _student_list_text: Text = None
 
     def __init__(self):
-        self._app = tkinter.Tk()
+        self._app = Tk()
         self._app.title('Student Overview')
         self._app.minsize(800, 600)
 
@@ -23,29 +26,26 @@ class StudentOverviewApp:
         self._create_text_widget()
 
     def _create_banner(self):
-        print(join(getcwd(), 'assets', 'images', 'biker-banner.png'))
-
-        self._banner = tkinter.PhotoImage(
-            file=join(getcwd(), 'assets', 'images', 'biker-banner.png'))
+        self._banner = PhotoImage(file=join(getcwd(), 'assets', 'images', 'biker-banner.png'))
 
         label = ttk.Label(self._app, image=self._banner)
-        label.config(anchor=tkinter.CENTER)
+        label.config(anchor=CENTER)
         label.img = self._banner
 
-        label.pack(fill=tkinter.X, pady=4)
+        label.pack(fill=X, pady=4)
 
     def _create_text_widget(self):
-        student_overview_label = ttk.Label(self._app, text='Students Overview:', font=font.Font(weight=font.BOLD))
-        student_overview_label.pack(ipady=4, padx=80, fill=tkinter.X)
+        student_overview_label = ttk.Label(self._app, text='Students Overview:', font=Font(weight=BOLD))
+        student_overview_label.pack(ipady=4, padx=80, fill=X)
 
-        self._student_list_text = tkinter.Text(self._app)
+        self._student_list_text = Text(self._app)
 
         self._student_list_text.pack()
 
     @property
-    def student_list_text(self) -> tkinter.Text:
+    def student_list_text(self) -> Text:
         return self._student_list_text
 
     @property
-    def app(self) -> tkinter.Tk:
+    def app(self) -> Tk:
         return self._app
