@@ -4,8 +4,9 @@ Date: 2021-10-14
 About:    This Python script will create a GUI app with the Tkinter module,
           in which it will show a list of Students in a Text widget with a banner above that.
 """
-from studentOverviewApp import StudentOverviewApp
 from student import Student
+from studentOverviewApp import StudentOverviewApp
+from tkinter.constants import DISABLED
 
 STUDENTS = [
     Student(firstname='Oscar', lastname='Wellner'),
@@ -23,7 +24,7 @@ def main():
 
         student_overview_app.student_list_text.insert(f'{index + 1}.0', f'- {student.name()}\n')
 
-    student_overview_app.student_list_text['state'] = 'disabled'
+    student_overview_app.student_list_text['state'] = DISABLED
     student_overview_app.app.mainloop()
 
 
