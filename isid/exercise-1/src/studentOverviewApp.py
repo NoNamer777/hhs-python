@@ -1,7 +1,7 @@
 from os import chdir, getcwd
 from os.path import join
 from pathlib import Path
-from tkinter import Toplevel, PhotoImage, Text, Tk, X, CENTER, LEFT
+from tkinter import Toplevel, PhotoImage, Text, Tk, X, CENTER
 from tkinter.ttk import Label, Frame
 from tkinter.font import Font, BOLD
 

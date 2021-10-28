@@ -7,11 +7,8 @@ class Student:
     _lastname: str = None
 
     def __init__(self, **kwargs):
-        firstname = kwargs[FIRST_NAME_KEY]
-        lastname = kwargs[LAST_NAME_KEY]
-
-        self.firstname = firstname if firstname is not None else None
-        self.lastname = lastname if lastname is not None else None
+        self.firstname = kwargs.get(FIRST_NAME_KEY)
+        self.lastname = kwargs.get(LAST_NAME_KEY)
 
     def name(self) -> str:
         return f'{self.firstname} {self.lastname}'
