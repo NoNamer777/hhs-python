@@ -17,15 +17,20 @@ STUDENTS = [
 
 
 def main():
-    student_overview_app = StudentOverviewApp()
+    try:
+        student_overview_app = StudentOverviewApp()
 
-    for index in range(0, len(STUDENTS)):
-        student = STUDENTS[index]
+        for index in range(0, len(STUDENTS)):
+            student = STUDENTS[index]
 
-        student_overview_app.student_list_text.insert(f'{index + 1}.0', f'- {student.name()}\n')
+            student_overview_app.student_list_text.insert(f'{index + 1}.0', f'- {student.name()}\n')
 
-    student_overview_app.student_list_text['state'] = DISABLED
-    student_overview_app.app.mainloop()
+        student_overview_app.student_list_text['state'] = DISABLED
+
+        student_overview_app.app.mainloop()
+
+    except KeyboardInterrupt:
+        print('Successfully closed application')
 
 
 if __name__ == '__main__':
