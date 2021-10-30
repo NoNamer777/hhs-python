@@ -19,7 +19,6 @@ chdir(FILE_LOCATION.parent.parent)
 
 class StudentOverviewApp:
     _app: Tk = None
-    _window: Toplevel = None
     _banner: PhotoImage = None
     _student_list_text: Text = None
 
