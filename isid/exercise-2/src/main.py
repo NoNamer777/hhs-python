@@ -24,6 +24,7 @@ def main():
     try:
         student_overview_app = StudentOverviewApp()
 
+        # Add first- and lastname of Students to the correct Text widget
         for index in range(0, len(STUDENTS)):
             student = STUDENTS[index]
 
@@ -34,9 +35,11 @@ def main():
                 .student_last_name_text_widget\
                 .insert(f'{index + 3}.0', f'{student.lastname}\n')
 
+        # Disable both Text areas
         student_overview_app.student_first_name_text_widget['state'] = DISABLED
         student_overview_app.student_last_name_text_widget['state'] = DISABLED
 
+        # Start the application
         student_overview_app.app.mainloop()
 
     except KeyboardInterrupt:
