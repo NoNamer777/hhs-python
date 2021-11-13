@@ -1,4 +1,7 @@
-from sqlite3 import *
+from csv import DictReader
+from os.path import join
+from sqlite3 import connect
+
 from ..models import Student
 
 
@@ -20,21 +23,23 @@ class DatabaseConnection:
         self.connection.commit()
 
         # Provide some data
-        self.connection.execute("""
-            INSERT INTO student (firstname, lastname) VALUES
-                ('Ted', 'Anthony'),
-                ('Alice', 'Woodward'),
-                ('Venessa', 'Chambers'),
-                ('Scoot', 'Booth'),
-                ('Lester', 'Burris'),
-                ('Mark', 'Griffin');
-        """)
+        with open(join('assets', 'data', 'students.csv'), 'r') as data:
+            reader = DictReader(data)
+
+            for row in reader:
+                student = Student(row)
+
+                self.connection.execute('INSERT INTO student (firstname, lastname) VALUES (?, ?);', (
+                    student.firstname,
+                    student.lastname
+                ))
+
         self.connection.commit()
 
     def get_students(self):
         students = []
         cursor = self.connection.cursor()
-        cursor.execute("""SELECT * FROM student""")
+        cursor.execute('SELECT * FROM student')
 
         rows = cursor.fetchall()
 
