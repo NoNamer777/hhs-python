@@ -1,6 +1,6 @@
 from csv import DictReader
 from os.path import join
-from sqlite3 import connect
+from sqlite3 import connect, Row
 
 from ..models import Student
 
@@ -8,13 +8,14 @@ from ..models import Student
 class DatabaseConnection:
     def __init__(self):
         self._connection = connect(':memory:')
+        self._connection.row_factory = Row
 
         self.prepare_db()
 
     def prepare_db(self):
         # Create Student table
         self.connection.execute("""
-            CREATE TABLE IF NOT EXISTS student(
+            CREATE TABLE IF NOT EXISTS student (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 firstname VARCHAR(24) NOT NULL,
                 lastname VARCHAR(24) NOT NULL,
@@ -44,7 +45,7 @@ class DatabaseConnection:
         rows = cursor.fetchall()
 
         for row in rows:
-            students.append(Student({'firstname': row[1], 'lastname': row[2]}))
+            students.append(Student(dict(row)))
 
         return students
 

@@ -28,7 +28,7 @@ class OverviewFrame:
         header.grid(row=1, column=1, columnspan=2, ipady=8)
 
         # Create a Table widget for showing the data
-        self._overview = Treeview(self.frame, columns=('lastname'))
+        self._overview = Treeview(self.frame, columns='lastname')
         self._overview.grid(row=2, column=1, columnspan=2, padx=64)
 
         self.frame.grid_columnconfigure(2, weight=1)
@@ -50,9 +50,7 @@ class OverviewFrame:
         if len(objects) == 0:
             return
 
-        for index in range(0, len(objects)):
-            student = objects[index]
-
+        for index, student in enumerate(objects):
             self.overview.insert('', index=END, iid=index, text=student.firstname, values=student.lastname)
 
     @property
